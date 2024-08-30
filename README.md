@@ -12,3 +12,20 @@
 [![](https://img.shields.io/badge/Bibtex-CB8CEA)](#citation)
 
 </div>
+
+
+
+
+
+
+<a name="citation"></a>
+## Citation
+```
+@inproceedings{reddy2024unite,
+  title={Unsupervised Video Domain Adaptation with Masked Pre-Training and Collaborative Self-Training},
+  author={Reddy, Arun and Paul, William and Rivera, Corban and Shah, Ketul and de Melo, Celso M and Chellappa, Rama},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages={18919--18929},
+  year={2024}
+}
+```
