@@ -22,7 +22,13 @@
 
 ### Download Checkpoints
 
+#### Student Model
 The student model in UNITE is initialized from the Unmasked Teacher (UMT) checkpoint pre-trained on Kinetics-710 (ViT-B/16). You can find a link to this checkpoint in the [UMT repository](https://github.com/OpenGVLab/unmasked_teacher/blob/main/single_modality/MODEL_ZOO.md), or can directly download it from [here](https://www.cis.jhu.edu/~areddy/unite_cvpr24/checkpoints/b16_ptk710_f8_res224.pth).
+
+#### Teacher Model
+Like UMT, we use [CLIP](https://github.com/openai/CLIP) as the teacher model by default:
+- Follow [extract.ipynb](./src/models/extract_clip/extract.ipynb) to extract visual encoder from CLIP.
+- Change `MODEL_PATH` in [clip.py](.src/models/clip.py).
 
 ## Running UNITE
 
