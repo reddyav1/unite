@@ -16,7 +16,17 @@
 </div>
 
 
+## Getting Started
 
+### Data Preparation
+
+### Download Checkpoints
+
+The student model in UNITE is initialized from the Unmasked Teacher (UMT) checkpoint pre-trained on Kinetics-710 (ViT-B/16). You can find a link to this checkpoint in the [UMT repository](https://github.com/OpenGVLab/unmasked_teacher/blob/main/single_modality/MODEL_ZOO.md), or can directly download it from [here](https://www.cis.jhu.edu/~areddy/unite_cvpr24/checkpoints/b16_ptk710_f8_res224.pth).
+
+## Running UNITE
+
+Each of the three stages in UNITE is separated into its own Python file. We provide bash scripts that will launch distributed training for each stage (`stage<X>.sh`).
 
 ## Acknowledgement
 
