@@ -28,7 +28,7 @@ The student model in UNITE is initialized from the Unmasked Teacher (UMT) checkp
 #### Teacher Model
 Like UMT, we use [CLIP](https://github.com/openai/CLIP) as the teacher model by default:
 - Follow [extract.ipynb](./src/models/extract_clip/extract.ipynb) to extract visual encoder from CLIP.
-- Change `MODEL_PATH` in [clip.py](.src/models/clip.py).
+- Change `MODEL_PATH` in [clip.py](./src/models/clip.py).
 
 ## Running UNITE
 
