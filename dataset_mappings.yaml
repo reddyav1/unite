@@ -1,0 +1,243 @@
+# UCF-HMDB
+ucf-hmdb:
+  ann_file_train: /cis/net/r32/data/hmdb-ucf/ucf12_train.csv 
+  ann_file_train_target: /cis/net/r32/data/hmdb-ucf/hmdb12_train.csv 
+  ann_file_val: /cis/net/r32/data/hmdb-ucf/hmdb12_test.csv
+  ann_file_test: /cis/net/r32/data/hmdb-ucf/hmdb12_test.csv
+  nb_classes: 12
+  train_fraction: 1.0
+hmdb12_sourceonly: 
+  ann_file_train: /cis/net/r32/data/hmdb-ucf/hmdb12_train.csv
+  ann_file_train_target: ''
+  ann_file_train_knn: /cis/net/r32/data/hmdb-ucf/ucf12_train.csv
+  ann_file_val: /cis/net/r32/data/hmdb-ucf/hmdb12_test.csv
+  ann_file_test: /cis/net/r32/data/hmdb-ucf/hmdb12_test.csv
+
+hmdb-ucf:
+  ann_file_train: /cis/net/r32/data/hmdb-ucf/hmdb12_train.csv
+  ann_file_train_target: /cis/net/r32/data/hmdb-ucf/ucf12_train.csv 
+  ann_file_val: /cis/net/r32/data/hmdb-ucf/ucf12_test.csv 
+  ann_file_test: /cis/net/r32/data/hmdb-ucf/ucf12_test.csv 
+  nb_classes: 12
+  train_fraction: 1.0
+ucf12_sourceonly:
+  ann_file_train: /cis/net/r32/data/hmdb-ucf/ucf12_train.csv
+  ann_file_train_target: ''
+  ann_file_train_knn: /cis/net/r32/data/hmdb-ucf/hmdb12_train.csv
+  ann_file_val: /cis/net/r32/data/hmdb-ucf/ucf12_test.csv
+  ann_file_test: /cis/net/r32/data/hmdb-ucf/ucf12_test.csv
+
+
+# Daily-DA
+hmdb-arid:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv
+  ann_file_train_target: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv 
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv 
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv 
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/hmdb.pth
+mit-arid:
+  ann_file_train: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_train_target: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/mit.pth
+kinetics-arid:
+  ann_file_train: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_train_target: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/kinetics.pth
+arid_sourceonly:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv
+  ann_file_train_target: ''
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_test.csv
+
+arid-hmdb:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv
+  ann_file_train_target: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv 
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv 
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv 
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/arid.pth
+mit-hmdb:
+  ann_file_train: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_train_target: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/mit.pth
+kinetics-hmdb:
+  ann_file_train: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_train_target: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/kinetics.pth
+hmdb_sourceonly:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv
+  ann_file_train_target: ''
+  ann_file_val: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv
+  ann_file_test: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+
+hmdb-mit:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv
+  ann_file_train_target: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/mit_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/mit_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/hmdb.pth
+arid-mit:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv
+  ann_file_train_target: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/mit_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/mit_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/arid.pth 
+kinetics-mit:
+  ann_file_train: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_train_target: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/mit_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/mit_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/daily-DA/kinetics.pth
+mit_sourceonly:
+  ann_file_train: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_train_target: ''
+  ann_file_val: /cis/net/r32/data/Daily-DA/mit_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/mit_test.csv
+
+mit-kinetics:
+  ann_file_train: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_train_target: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  nb_classes: 8
+hmdb-kinetics:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/hmdb8_train.csv
+  ann_file_train_target: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+arid-kinetics:
+  ann_file_train: /cis/net/r32/data/arid/annotations/hmdb-arid8/arid8_train.csv
+  ann_file_train_target: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  nb_classes: 8
+  train_fraction: 1.0
+kinetics_daily_sourceonly:
+  ann_file_train: /cis/net/r32/data/Daily-DA/kinetics_daily_train.csv
+  ann_file_train_target: ''
+  ann_file_train_knn: /cis/net/r32/data/Daily-DA/mit_train.csv
+  ann_file_val: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+  ann_file_test: /cis/net/r32/data/Daily-DA/kinetics_daily_test.csv
+
+# Sports-DA
+kinetics-sports1m:
+  ann_file_train: /cis/net/r32/data/Sports-DA/kinetics_sports_train.csv
+  ann_file_train_target: /cis/net/r32/data/Sports-DA/sports1m_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/sports1m_clean_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/sports1m_clean_test.csv
+  nb_classes: 23
+  train_fraction: 1.0
+ucf_sports-sports1m:
+  ann_file_train: /cis/net/r32/data/Sports-DA/ucf_sports_train.csv
+  ann_file_train_target: /cis/net/r32/data/Sports-DA/sports1m_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/sports1m_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/sports1m_test.csv
+  nb_classes: 23
+  train_fraction: 1.0
+  student_init: /cis/home/areddy/unmasked_teacher/checkpoints/source_models/sports-DA/ucf_sports.pth
+sports1m_sourceonly:
+  ann_file_train: /cis/net/r32/data/Sports-DA/sports1m_train.csv
+  ann_file_train_target: ''
+  ann_file_val: /cis/net/r32/data/Sports-DA/sports1m_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/sports1m_test.csv
+
+kinetics-ucf_sports:
+  ann_file_train: /cis/net/r32/data/Sports-DA/kinetics_sports_train.csv
+  ann_file_train_target: /cis/net/r32/data/Sports-DA/ucf_sports_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/ucf_sports_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/ucf_sports_test.csv
+  nb_classes: 23
+  train_fraction: 1.0
+sports1m-ucf_sports:
+  ann_file_train: /cis/net/r32/data/Sports-DA/sports1m_train.csv
+  ann_file_train_target: /cis/net/r32/data/Sports-DA/ucf_sports_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/ucf_sports_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/ucf_sports_test.csv
+  nb_classes: 23
+ucf_sports_sourceonly:
+  ann_file_train: /cis/net/r32/data/Sports-DA/ucf_sports_train.csv
+  ann_file_train_knn: /cis/net/r32/data/Sports-DA/sports1m_train.csv
+  ann_file_train_target: ''
+  ann_file_val: /cis/net/r32/data/Sports-DA/ucf_sports_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/ucf_sports_test.csv
+
+sports1m-kinetics:
+  ann_file_train: /cis/net/r32/data/Sports-DA/sports1m_train.csv
+  ann_file_train_target: /cis/net/r32/data/Sports-DA/kinetics_sports_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/kinetics_sports_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/kinetics_sports_test.csv
+  nb_classes: 23
+  train_fraction: 1.0
+ucf_sports-kinetics:
+  ann_file_train: /cis/net/r32/data/Sports-DA/ucf_sports_train.csv
+  ann_file_train_target: /cis/net/r32/data/Sports-DA/kinetics_sports_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/kinetics_sports_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/kinetics_sports_test.csv
+  nb_classes: 23
+  train_fraction: 1.0
+kinetics_sports_sourceonly:
+  ann_file_train: /cis/net/r32/data/Sports-DA/kinetics_sports_train.csv
+  ann_file_train_target: ''
+  ann_file_train_knn: /cis/net/r32/data/Sports-DA/ucf_sports_train.csv
+  ann_file_val: /cis/net/r32/data/Sports-DA/kinetics_sports_test.csv
+  ann_file_test: /cis/net/r32/data/Sports-DA/kinetics_sports_test.csv
+  
+
+# # RoCoG-v2
+# rocog_sg2rg:
+#   ann_file_train: /cis/net/r32/data/rocog_v2/annotations/syn_ground_train.csv 
+#   ann_file_train_target: /cis/net/r32/data/rocog_v2/annotations/real_ground_train.csv 
+#   ann_file_val: /cis/net/r32/data/rocog_v2/annotations/real_ground_test.csv
+#   ann_file_test: /cis/net/r32/data/rocog_v2/annotations/real_ground_test.csv
+#   nb_classes: 7
+#   train_fraction: 1.0
+# rocog_rg_sourceonly:
+#   ann_file_train: /cis/net/r32/data/rocog_v2/annotations/real_ground_train.csv
+#   ann_file_train_target: ''
+#   ann_file_val: /cis/net/r32/data/rocog_v2/annotations/real_ground_test.csv
+#   ann_file_test: /cis/net/r32/data/rocog_v2/annotations/real_ground_test.csv
+# rocog_sa2ra:
+#   ann_file_train: /cis/net/r32/data/rocog_v2/annotations/syn_air_train.csv 
+#   ann_file_train_target: /cis/net/r32/data/rocog_v2/annotations/real_air_train.csv 
+#   ann_file_val: /cis/net/r32/data/rocog_v2/annotations/real_air_test.csv
+#   ann_file_test: /cis/net/r32/data/rocog_v2/annotations/real_air_test.csv 
+#   nb_classes: 7
+#   train_fraction: 1.0
+
+# # Kinetics-NEC_Drone
+# kinetics-necdrone:
+#   ann_file_train: /cis/net/r32/data/nec_drone/kinetics7/kinetics7_train_balanced600.csv 
+#   ann_file_train_target: /cis/net/r32/data/nec_drone/cropped/nec7_train.csv 
+#   ann_file_val: /cis/net/r32/data/nec_drone/cropped/nec7_test.csv 
+#   ann_file_test: /cis/net/r32/data/nec_drone/cropped/nec7_test.csv 
+#   nb_classes: 7
+#   train_fraction: 1.0
