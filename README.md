@@ -12,14 +12,15 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/reddyav1/unite/blob/main/LICENSE)
 [![](https://img.shields.io/badge/Bibtex-CB8CEA)](#citation)
 
-
 </div>
 
 ## About
 
 UNITE is a three-stage approach for unsupervised video domain adaptation. In the first stage, unsupervised pre-training is performed on target domain videos using the Unmasked Teacher objective. In the second stage, we employ supervised fine-tuning on source domain videos. Finally, in the third stage, we perform collaborative self-training using using predictions from both the student and teacher models.
 
-
+<p align="center">
+<img src="images/teaser.png" alt="teaser" width="550"/>
+</p>
 
 ## Getting Started
 
