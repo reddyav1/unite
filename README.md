@@ -16,7 +16,7 @@
 
 ## About
 
-UNITE is a three-stage approach for unsupervised video domain adaptation. In the first stage, unsupervised pre-training is performed on target domain videos using the Unmasked Teacher objective. The second stage employs supervised fine-tuning on source domain videos. The third stage involves collaborative self-training, where both student and teacher model predictions are used to further adapt to the target domain.
+UNITE is a three-stage approach for unsupervised video domain adaptation that uses a powerful image-based teacher model to adapt a video student model to the target domain. In the first stage, unsupervised pre-training is performed on target domain videos using the Unmasked Teacher objective. The second stage employs supervised fine-tuning on source domain videos. The third stage involves collaborative self-training, where both student and teacher model predictions are used to further adapt to the target domain.
 
 <p align="center">
 <img src="images/teaser.png" alt="teaser" width="550"/>
