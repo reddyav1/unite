@@ -30,6 +30,9 @@ Like UMT, we use [CLIP](https://github.com/openai/CLIP) as the teacher model by 
 - Follow [extract.ipynb](./src/models/extract_clip/extract.ipynb) to extract visual encoder from CLIP.
 - Change `MODEL_PATH` in [clip.py](./src/models/clip.py).
 
+### Environment
+
+
 ## Running UNITE
 
 Each of the three stages in UNITE is separated into its own Python file. We provide bash scripts that will launch distributed training for each stage (`stage<X>.sh`).
