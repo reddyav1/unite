@@ -31,8 +31,17 @@ Like UMT, we use [CLIP](https://github.com/openai/CLIP) as the teacher model by 
 - Change `MODEL_PATH` in [clip.py](./src/models/clip.py).
 
 ### Environment
+We recommend you create a conda environment. Our environment is provided in `environment.yml.` You can create your own by running:
 
+```
+conda create --name unite --file environment.yml
+```
 
+You should also install OpenAI CLIP from Github, which you can do by running:
+
+```
+pip install git+https://github.com/openai/CLIP.git
+```
 ## Running UNITE
 
 Each of the three stages in UNITE is separated into its own Python file. We provide bash scripts that will launch distributed training for each stage (`stage<X>.sh`).
