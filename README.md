@@ -20,6 +20,10 @@
 
 ### Data Preparation
 
+Please download the datasets from their original sources and update `dataset_mappings.yaml` with the correct paths to your `.csv` annotations files, which should be of the form `/path/to/video.mp4,<class_id>`.
+
+To facilitate getting started, we provide data and our annotations files for the ARID-HMDB (A&#8594;H) domain shift in Daily-DA [here](https://www.cis.jhu.edu/~areddy/unite_cvpr24/). Remember to update the paths in the annotations files to point to your videos.
+
 ### Download Checkpoints
 
 #### Student Model
@@ -31,15 +35,17 @@ Like UMT, we use [CLIP](https://github.com/openai/CLIP) as the teacher model by 
 - Change `MODEL_PATH` in [clip.py](./src/models/clip.py).
 
 ### Environment
-We recommend you create a conda environment. Our environment is provided in `environment.yml.` You can create your own by running:
+We recommend you create a conda environment to run UNITE. Our environment is provided in `environment.yaml.` You can create your own by running:
 
 ```
-conda env create --name unite --file environment.yml
+conda env create --name unite --file environment.yaml
 ```
 
 ## Running UNITE
 
-Each of the three stages in UNITE is separated into its own Python file. We provide bash scripts that will launch distributed training for each stage (`stage<X>.sh`).
+Each of the three stages in UNITE is separated into its own Python file. We provide bash scripts that will launch distributed training for each stage (`stage<X>.sh`), currently configured for the ARID-HMDB (A&#8594;H) domain shift from Daily-DA as an example.
+
+You will need to update the output directory and student model initialization checkpoint path in `stage1.sh`. In `stage2.sh` and `stage3.sh`, specify the `ckpt_path` to point to the desired output checkpoint from the previous stage.
 
 ## Acknowledgement
 
