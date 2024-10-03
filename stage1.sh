@@ -26,6 +26,7 @@ run_stage1.py \
     --checkpoints_enabled \
     --save_ckpt_freq 50 \
     --num_workers 10 \
+    --disable_wandb \
     --wandb_entity your_wandb_entity \
     --wandb_project your_wandb_project \
     --wandb_group your_wandb_group \
