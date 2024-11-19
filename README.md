@@ -57,6 +57,8 @@ You will need to update the output directory and student model initialization ch
 
 This repository was built based on [Unmasked Teacher](https://github.com/OpenGVLab/unmasked_teacher).
 
+This research was sponsored by the Army Research Laboratory under Cooperative Agreement W911NF-21-2-0211. The views and conclusions contained in this document are those of the authors and should not be interpreted as representing the official policies, either expressed or implied, of the Army Research Office or the U.S. Government. The U.S. Government is authorized to reproduce and distribute reprints for Government purposes notwithstanding any copyright notation herein.
+
 <a name="citation"></a>
 ## Citation
 ```
