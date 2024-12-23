@@ -1,3 +1,23 @@
+# Copyright (c) 2024 The Johns Hopkins University Applied Physics Laboratory
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 """
 Code for Stage 2 of UNITE: supervised fine-tuning on source domain data
 """
@@ -84,11 +104,9 @@ def get_args(args=None):
         weight decay. We use a cosine schedule for WD and using a larger decay by
         the end of training improves performance for ViTs.""")
 
-    # BEGIN: updated code
     parser.add_argument('--lr_schedule', type=str, default='cosine', help='Learning rate schedule (default: constant)', choices=['constant', 'cosine', 'step'])
     parser.add_argument('--step_fraction', type=float, default=0.1, help='Fraction by which to decay at each step (default: 0.1)')
     parser.add_argument('--lr_step_epochs', type=int, nargs='+', default=None, help='Epochs at which to decay learning rate (default: [5])')
-    # END: updated code
 
     parser.add_argument('--lr', type=float, default=1e-3, metavar='LR',
                         help='learning rate (default: 1e-3)')
@@ -228,8 +246,7 @@ def get_args(args=None):
 
     parser.add_argument('--lp_ft_epochs', default=0, type=int)
 
-
-    # distributed training parameters
+    # Distributed training parameters
     parser.add_argument('--world_size', default=1, type=int,
                         help='number of distributed processes')
     parser.add_argument('--local_rank', default=-1, type=int)

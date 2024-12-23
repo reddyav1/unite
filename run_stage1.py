@@ -1,3 +1,23 @@
+# Copyright (c) 2024 The Johns Hopkins University Applied Physics Laboratory
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 """
 Code for Stage 1 of UNITE: UMT pre-training on target domain data
 """
@@ -415,7 +435,6 @@ def train_one_epoch(
                 raise NotImplementedError
 
             # Compute total loss
-            # TODO: should below line be inside autocast?
             loss = loss_clip
 
         loss_clip = loss_clip.item()
@@ -692,7 +711,6 @@ def main(args):
     if args.ann_file_train_target: 
         dataset_train_target = build_pretraining_dataset(args, args.ann_file_train_target)
         if len(dataset_train_target) < len(dataset_train):
-        # if False:
         # target dataset is smaller than source dataset
             target_repetitions = int(np.ceil(len(dataset_train) / len(dataset_train_target)))
             print("Repeating target dataset %d times" % target_repetitions)
@@ -700,7 +718,7 @@ def main(args):
             # target dataset is larger than source dataset, so we need to repeat train
             target_repetitions = 1
             train_repetitions = int(np.ceil(len(dataset_train_target) / len(dataset_train)))
-            train_repetitions = 1 #TODO: DELETE THIS
+            # train_repetitions = 1
             sampler_train = DistributedSampler(dataset_train,
                                                                 num_replicas=num_tasks,
                                                                 rank=sampler_rank,
@@ -786,7 +804,7 @@ def main(args):
     print("Number of training steps per epoch = %d" % num_training_steps_per_epoch)
     print("Number of training examples per epoch = %d" % (total_batch_size * num_training_steps_per_epoch))
 
-    num_layers = 12 # change this
+    num_layers = 12 # TODO: make this configurable
     if args.distributed:
         model = torch.nn.parallel.DistributedDataParallel(model, device_ids=[args.gpu], find_unused_parameters=(False))
         model_without_ddp = model.module

@@ -1,7 +1,10 @@
+<div align="center">
+
 <br />
 <p align="center">
   <h3 align="center"><strong>Unsupervised Video Domain Adaptation with<br>Masked Pre-Training and Collaborative Self-Training</strong></h2>
 </p>
+</div>
 
 <div align="center">
 
@@ -9,7 +12,7 @@
 [![](https://img.shields.io/badge/Supplementary-7DCBFF)](https://openaccess.thecvf.com/content/CVPR2024/supplemental/Reddy_Unsupervised_Video_Domain_CVPR_2024_supplemental.pdf)
 [![](https://img.shields.io/badge/arXiv-b31b1b)](https://arxiv.org/abs/2312.02914)
 [![](https://img.shields.io/badge/Video-ff0000)](https://www.youtube.com/watch?v=dDjCVnkuhGg)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/reddyav1/unite/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://gitlab.jhuapl.edu/reddyav1/unite/-/blob/main/LICENSE)
 [![](https://img.shields.io/badge/Bibtex-17b656)](#citation)
 
 </div>
@@ -18,9 +21,11 @@
 
 UNITE is a three-stage approach for unsupervised video domain adaptation that uses a powerful image-based teacher model to adapt a video student model to the target domain. In the first stage, unsupervised pre-training is performed on target domain videos using the Unmasked Teacher objective. The second stage employs supervised fine-tuning on source domain videos. The third stage involves collaborative self-training, where both student and teacher model predictions are used to further adapt to the target domain.
 
+<div align="center">
 <p align="center">
 <img src="images/teaser.png" alt="teaser" width="550"/>
 </p>
+</div>
 
 ## Getting Started
 
@@ -70,3 +75,9 @@ This research was sponsored by the Army Research Laboratory under Cooperative Ag
   year={2024}
 }
 ```
+
+## License
+
+This project is released under the MIT License.
+
+Copyright (c) 2024 The Johns Hopkins University Applied Physics Laboratory

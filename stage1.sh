@@ -1,3 +1,4 @@
+#!/bin/bash
 devices=0,1,2,3
 
 # Change the output_dir and init_ckpt_dir

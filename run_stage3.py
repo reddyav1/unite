@@ -1,3 +1,23 @@
+# Copyright (c) 2024 The Johns Hopkins University Applied Physics Laboratory
+
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 """
 Code for Stage 3 of UNITE: collaborative self-training on source + target data
 """
@@ -436,24 +456,6 @@ def train_one_epoch(
 
         else:
             raise ValueError(f"Invalid masking type: {args.masking_type}")
-
-            # if mask_type == 'attention':
-            #     importance = torch.multinomial(attn, N)
-            #     bool_masked_pos = torch.ones((BT, N))
-            #     pos1 = torch.arange(BT).view(-1, 1).repeat(1, N_vis)
-            #     pos2 = importance[:, :N_vis]
-            #     bool_masked_pos[pos1, pos2] = 0
-            #     bool_masked_pos = bool_masked_pos.view(B, -1).to(torch.bool)
-                    
-            # C_CLIP = norm_clip.shape[-1]
-            # if len(norm_clip.shape) == 4:
-            #     K = norm_clip.shape[0]
-            #     clip_bool_masked_pos = bool_masked_pos.unsqueeze(0).repeat(K, 1, 1)
-            #     targets_clip_vis = norm_clip[~clip_bool_masked_pos].reshape(K, B, -1, C_CLIP)
-            # else:
-            #     clip_bool_masked_pos = bool_masked_pos
-            #     targets_clip_vis = norm_clip[~clip_bool_masked_pos].reshape(B, -1, C_CLIP)
-            # targets_clip = targets_clip_vis
             
 
         ###############################
@@ -571,7 +573,7 @@ def train_one_epoch(
 
                 # most confident prediction
                 most_conf_preds = torch.where(student_conf, preds_full_t.detach(), clip_preds)
-                most_conf_preds = preds_full_t.detach() # TODO: remove this line             
+                most_conf_preds = preds_full_t.detach()             
 
                 # keep track of the different types of errors we are making, using correct_mask
                 correct_mask = (preds_full_t.detach() == labels_t.detach())
@@ -619,38 +621,7 @@ def train_one_epoch(
                 # use label smoothing
                 loss_class_t = nn.CrossEntropyLoss()(ce_input, labels_t)
 
-
-            # if args.pseudolabel_threshold > 0:
-            #     if args.pseudolabel_threshold >= 1.0:
-            #         # this means oracle pseudolabeling
-            #         tgt_pseudolabels = labels_t.to(device=videos.device)
-            #         tgt_preds = tgt_pseudolabels
-            #     else:
-            #         # perform pseudolabeling on unlabeled target domain videos
-            #         tgt_probs = nn.Softmax(dim=-1)(tgt_logits)
-            #         tgt_probs_max, tgt_preds = tgt_probs.max(dim=-1)
-            #         tgt_preds[tgt_probs_max < args.pseudolabel_threshold] = -1
-            #         tgt_pseudolabels = tgt_preds.to(torch.long)
-
-            #     if args.target_only_classification and (tgt_pseudolabels != -1).sum() > 0:
-            #         # only use target domain videos for classification
-            #         logits = tgt_logits
-            #         labels = tgt_pseudolabels
-            #     else:
-            #         # Concatenate logits and labels/pseudolabels
-            #         logits = torch.cat((src_logits, tgt_logits), dim=0)
-            #         labels = torch.cat((labels_s, tgt_pseudolabels), dim=0)
-            
-            # else:
-            #     logits = src_logits
-            #     labels = labels_s
-
-            # # Compute CrossEntropyLoss
-            # loss_class = nn.CrossEntropyLoss(ignore_index=-1)(logits, labels)
-
-
             # Compute total loss
-            # TODO: should below line be inside autocast?
             loss = (args.class_loss_src_ratio_pl * loss_class_s + loss_class_t) 
 
         loss_class_s = loss_class_s.item()
@@ -709,17 +680,8 @@ def train_one_epoch(
                 labels_s = labels_s.detach().cpu().numpy()
                 src_preds = np.argmax(src_logits, axis=1)
                 src_acc = (src_preds == labels_s).mean()
-                # if args.pseudolabel_threshold > 0:
-                #     # compute pseudo-labeling accuracy
-                #     tgt_preds = tgt_preds.detach().cpu().numpy()
-                #     labels_t = labels_t.detach().cpu().numpy()
-                #     indices = np.where(tgt_preds != -1)[0]
-                #     pseudolabel_acc = (tgt_preds[indices] == labels_t[indices]).mean()
-                # else:
-                #     pseudolabel_acc = 0.
             else:
                 src_acc = 0.
-                # pseudolabel_acc = 0.
             wandb.log({
                 "train/loss": loss_value,
                 "train/loss_scale": loss_scale_value,
@@ -1078,9 +1040,6 @@ def main(args):
     ##########################
 
     # Make datasets
-    # dataset_train = build_pretraining_dataset(args,
-    #                                           args.ann_file_train,
-    #                                           fraction=args.train_fraction)
     dataset_train, _ = build_dataset(is_train=True, test_mode=False, args=args)
     dataset_val, _ = build_dataset(is_train=False, test_mode=False, args=args)
     dataset_test, _ = build_dataset(is_train=False, test_mode=True, args=args)
@@ -1135,7 +1094,6 @@ def main(args):
 
     # Configure target domain dataset, sampler and loader
     if args.ann_file_train_target: 
-        # dataset_train_target = build_pretraining_dataset(args, args.ann_file_train_target)
         dataset_train_target, _ = build_dataset(is_train=False, test_mode=False, args=args,
                                              annotation_file=args.ann_file_train_target)
         if len(dataset_train_target) < len(dataset_train):
@@ -1190,7 +1148,8 @@ def main(args):
     else:
         data_loader_train_target = None
 
-    num_training_steps_per_epoch = len(data_loader_train) 
+    num_training_steps_per_epoch = len(data_loader_train)
+    
     ###########################
     #### Model Preparation ####
     ###########################
@@ -1385,6 +1344,7 @@ def main(args):
         ####################
         #### Validation ####
         ####################
+        
         if (epoch + 1) % args.val_interval == 0 and src_classifier is not None:
             val_stats = validation_one_epoch(data_loader_val, model, src_classifier, device, use_wandb=use_wandb, args=args)
             if use_wandb:
