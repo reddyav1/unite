@@ -15,6 +15,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://gitlab.jhuapl.edu/reddyav1/unite/-/blob/main/LICENSE)
 [![](https://img.shields.io/badge/Bibtex-17b656)](#citation)
 
+[Arun Reddy](https://scholar.google.com/citations?user=EOy66P8AAAAJ&hl=en), [William Paul](https://scholar.google.com/citations?user=92bmh84AAAAJ&hl=en), [Corban Rivera](https://scholar.google.com/citations?user=iTvyAeMAAAAJ&hl=en), [Ketul Shah](https://kshah33.github.io/), [Celso M. de Melo](https://celsodemelo.net/), [Rama Chellappa](https://scholar.google.com/citations?user=L60tuywAAAAJ&hl=en)
 </div>
 
 ## About
